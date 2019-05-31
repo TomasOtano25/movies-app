@@ -1,0 +1,44 @@
+{
+  "name": "graphql-course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d dist --source-maps",
+    "start": "nodemon --exec babel-node src/index.js",
+    "serve": "node dist/index.js",
+    "clean": "rimraf dist",
+    "test:run-server": "cross-env TEST_DATABASE_URL=mongodb+srv://tomasotano25:T1212@tutorialgraphql-mrjbm.mongodb.net/test?retryWrites=true npm start",
+    "test:execute-test": "cross-env TEST_DATABASE_URL=mongodb+srv://tomasotano25:T1212@tutorialgraphql-mrjbm.mongodb.net/test?retryWrites=true mocha --require @babel/register src/**/*.spec.js --timeout 50000 --exit",
+    "test": "npm run test:run-server & npm run test:execute-test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.4.8",
+    "apollo-server-express": "^2.4.8",
+    "bcrypt": "^3.0.5",
+    "cors": "^2.8.5",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "graphql": "^14.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.4.21",
+    "validator": "^10.11.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/register": "^7.4.0",
+    "axios": "^0.18.0",
+    "chai": "^4.2.0",
+    "cross-env": "^5.2.0",
+    "mocha": "^6.0.2",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.10",
+    "rimraf": "^2.6.3"
+  }
+}
